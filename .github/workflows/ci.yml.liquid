@@ -1,5 +1,7 @@
 # This file is synced from rom-rb/template-gem repo
 
+{% assign default_rubies = ["3.0", "2.7", "2.6", "2.5", "jruby"] -%}
+
 name: ci
 
 on:
@@ -26,11 +28,9 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - "3.0"
-          - "2.7"
-          - "2.6"
-          - "2.5"
-          - "jruby"
+        {% for ruby in rubies | default: default_rubies -%}
+        - "{{ ruby }}"
+        {% endfor %}
         include:
           - ruby: "3.0"
             coverage: "true"
