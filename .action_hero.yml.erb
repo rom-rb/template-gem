@@ -1,0 +1,17 @@
+# This is a config synced from <%= org %>/template-gem repo
+
+sources:
+  - repo: <%= org %>/template-gem
+    sync:
+      <% if custom_ci -%>
+      - "!.github/workflows/ci.yml.erb"
+      <% end %>
+      - ".action_hero.yml.erb"
+      - ".devtools/templates/*.sync:${{dir}}/${{name}}"
+      - ".github/**/*.*"
+      - "spec/*"
+      - ".*"
+      - "*"
+  - repo: action-hero/workflows
+    sync:
+      - ".github/workflows/*.yml"
