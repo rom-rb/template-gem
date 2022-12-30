@@ -13,6 +13,8 @@ sources:
       - ".repobot.yml.erb"
       - ".devtools/templates/*.sync:${{dir}}/${{name}}"
       - ".github/**/*.*"
+      - ".rspec"
+      - ".rubocop.yml"
       - "spec/support/*"
       - "CODE_OF_CONDUCT.md"
       - "CONTRIBUTING.md"
@@ -20,8 +22,6 @@ sources:
       - "LICENSE.erb"
       - "README.erb"
       - "Gemfile.devtools"
-      - ".rspec"
-      - ".rubocop.yml"
   - repo: repobot-app/workflows
     sync:
       - ".github/workflows/*.yml"
